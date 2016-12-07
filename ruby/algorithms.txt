@@ -1,0 +1,34 @@
+Equip Your New Robot
+
+- Walk in a straight line until you have entered the elevator
+- Turn 180 degrees
+- Lift arm and press specific number
+- Press the close button
+- Put arm by your side
+- Stand still
+- For each floor that the elevator stops at, until the specific number is reached
+  - If the door opens and it is not your floor
+    - Stay in the same spot 
+    - Wait 5 seconds for others to enter
+- Otherwise
+  - if the door opens and it is the number that you pressed
+    - Walk in a straight line until you have passed the doors
+
+
+Loading Laundry Into The Washer
+
+- Bring a basket of dirty laundry to the laundry room
+- Bring 12 quarters
+- Open the door to washer 1 
+- Open the door to washer 2
+- For every article of clothing picked, until the basket is empty
+  - If the article is white
+    - place the article inside washer 1 
+- Otherwise:
+  - If the article is colored
+    - place the article inside washer 2
+- For each washer
+  - Until the washer coin receiver contains 6 quarters
+    - place 1 quarter into the coin receiver
+  - add one scoop detergent to detergent drawer
+  - Press start button
