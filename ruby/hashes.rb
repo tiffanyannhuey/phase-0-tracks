@@ -3,7 +3,9 @@
 #First, create a hash that can contain client details:
 client_file = {
 
+
 }
+
 
 #Ask the user for client details
 
@@ -26,7 +28,7 @@ p client_file[:client_age]
 puts "What city do you live in?"
 client_city = gets.chomp
 
-client_file[:client_city] = client_city.to_sym
+client_file[:client_city] = client_city
 
 p client_file[:client_city]
 
@@ -98,20 +100,21 @@ else
 # if no existing variable is entered
 # no changes will be made
   variable_change = gets.chomp
+  variable_change = variable_change.to_sym
     case 
-      when variable_change == ":client_name" 
+      when variable_change == :client_name
         puts "What is your name?"
         modified_client_name = gets.chomp
         client_file[:client_name] = modified_client_name
-      when variable_change == ":client_age"
+      when variable_change == :client_age
         puts "What is your age?"
         modified_client_age = gets.chomp
         client_file[:client_age] = modified_client_age.to_i
-      when variable_change == ":client_city"
+      when variable_change == :client_city
         puts "What city do you live in?"
         modified_client_city = gets.chomp
-        client_file[:client_city] = modified_client_city.to_sym
-      when variable_change == ":client_has_pets"
+        client_file[:client_city] = modified_client_city
+      when variable_change == :client_has_pets
           modified_pet_status = false 
 
           until modified_pet_status == true
@@ -130,7 +133,7 @@ else
             end
           end
           client_file[:client_has_pets] = modified_client_has_pets
-      when variable_change == ":client_decor_liked" 
+      when variable_change == :client_decor_liked
         modified_decor_liked = []
         loop do
           puts "What decor theme do you like? Type done when you are finished."
