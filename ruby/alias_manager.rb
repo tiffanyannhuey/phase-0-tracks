@@ -38,16 +38,16 @@ letter_changer('b')
 letter_changer('z')
 letter_changer('u')
 
-
+#this method takes the name and switches out 
 #convert the string into an array to split first name from last name
   #swap the first name and last name 
   #make uppercase letters into lowercase letters
 #join the array back into a string to combine the letters together
 #then, split the string into an array so that we can evaluate each letter
-#each letter will modify to the next letter
-  #all vowels will shift one forward
-  #all consonants will shift one forward
-
+  #if there is a space in the letter, we will leave the space in there
+  #otherwise, each letter will modify to the next letter using the above method
+    #all vowels will shift one forward
+    #all consonants will shift one forward
 
 
 def swap_name(name)
