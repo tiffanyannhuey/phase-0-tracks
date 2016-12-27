@@ -9,8 +9,8 @@
 
 class Santa
   #refactor getter methods
-  attr_reader :age, :ethnicity
-  attr_accessor :gender
+  attr_reader  :ethnicity
+  attr_accessor :age, :gender
 
 # An initialize method that prints "Initializing Santa instance.."
 # The initialize method will have the following attributes
@@ -58,8 +58,6 @@ class Santa
   #  @ethnicity
   #end 
 
-
-
 # This method ages Santa by one year
   def celebrate_birthday(current_age)
     new_age = @age + 1
@@ -78,65 +76,85 @@ class Santa
 # Setter methods to set instance variables outside Santa class
 
 #This setter method allows gender to be reassigned from outside the class definition
-  def gender=(new_gender)
-    @gender = new_gender
-  end 
-
+  #def gender=(new_gender)
+  #  @gender = new_gender
+  #end 
 
 end 
 
-
-# Step 1 - Driver Code for instance methods 
-
- # Kris_Kringle = Santa.new
-  # Kris_Kringle.speak
-  # Kris_Kringle.eat_milk_and_cookies("chocolate chip cookie")
-  
-# Step 2 - Driver Code for attributes 
-
-  # testing single instance:
-     Kris_Kringle = Santa.new('male', 'Romanian') 
-     Kris_Kringle.about
-  
-  # testing multiple Santa entries 
-    # create an empty array 
-    santas = []
+# DRIVER CODE 
+    # Step 1 - Driver Code for instance methods 
     
-    # make an array to gender types to store as one attribute
-    santa_genders = ['male', 'female', 'not sure', 'agender']
-    # make a second array of ethnicities to store as the second attribute
-    santa_ethnicities = ['romanian', 'north polish', 'martian', 'earthling']
+     # Kris_Kringle = Santa.new
+      # Kris_Kringle.speak
+      # Kris_Kringle.eat_milk_and_cookies("chocolate chip cookie")
+      
+    # Step 2 - Driver Code for attributes 
     
-    # FOR the length of the gender array, add the attributes at each index to the santa array 
-    santa_genders.length.times do |i|
-      santas << Santa.new(santa_genders[i], santa_ethnicities[i]) 
-    end 
+      # testing single instance:
+         #Kris_Kringle = Santa.new('male', 'Romanian') 
+         #Kris_Kringle.about
+      
+      # testing multiple Santa entries 
+        # create an empty array 
+        #santas = []
+        
+        # make an array to gender types to store as one attribute
+        #santa_genders = ['male', 'female', 'not sure', 'agender']
+        # make a second array of ethnicities to store as the second attribute
+        #santa_ethnicities = ['romanian', 'north polish', 'martian', 'earthling']
+        
+        # FOR the length of the gender array, add the attributes at each index to the santa array 
+        #santa_genders.length.times do |i|
+        #  santas << Santa.new(santa_genders[i], santa_ethnicities[i]) 
+        #end 
+        
+        # Loop through each Santa profile to see the attributes 
+        #santas.each do |santa|
+        #  santa.about
+        #end 
     
-    # Loop through each Santa profile to see the attributes 
-    santas.each do |santa|
-      santa.about
-    end 
+    
+    # Step 3 - Test Getter methods
+      #santas.each do |santa|
+      #  puts "This Santa's age is #{santa.age}."
+      #  puts "This Santa's ethnicity is #{santa.ethnicity}"
+      #end
+    
+    # Step 4 Test attribute-changing methods
+    
+      # test birthday method
+      #  Kris_Kringle.celebrate_birthday(@age)
+      #  Kris_Kringle.about 
+      
+      # test get mad at reindeer method
+      #  Kris_Kringle.get_mad_at("Dasher")
+      #  Kris_Kringle.about 
+    
+      # test gender reassignment method
+      #  Kris_Kringle.gender = "Manly Man"
+      #  Kris_Kringle.about 
 
 
-# Test Getter methods
-  santas.each do |santa|
-    puts "This Santa's age is #{santa.age}."
-    puts "This Santa's ethnicity is #{santa.ethnicity}"
-  end
+# Create a Santa Program
+  #Generate 50 random Santas
+  # Each Santa should have a random gender and ethnicity
+  new_santa_list = []
+  example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+  example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-# Test Setter methods
+  (50).times do 
+    new_santa_list << Santa.new(example_genders.sample, example_ethnicities.sample)
+  end 
 
-  # test birthday method
-    Kris_Kringle.celebrate_birthday(@age)
-    Kris_Kringle.about 
-  
-  # test get mad at reindeer method
-    Kris_Kringle.get_mad_at("Dasher")
-    Kris_Kringle.about 
+  #set age to a random number between 0 and 140 
+  new_santa_list.each do |santa|
+    age_range = [*1..140] #splat a range from 1 to 140 
+    santa.age = age_range.sample
+    santa.about #print out attributes of each santa 
+  end 
 
-  # test gender reassignment method
-    Kris_Kringle.gender = "Manly Man"
-    Kris_Kringle.about 
+
 
 
 
