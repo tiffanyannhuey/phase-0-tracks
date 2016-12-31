@@ -51,8 +51,8 @@ class Superhero
   def save(number)
       unless number == 1 then puts "He just saved #{number} damsels in distress!!!!" 
       else 
-      puts "He just saved a damsel in distress!!!"
-    end 
+        puts "He just saved a damsel in distress!!!"
+      end 
   end
 
 end 
