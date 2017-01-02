@@ -17,34 +17,22 @@
   #Otherwise, if the game ends and the secret word is not guessed, #player 2 will receive a taunting message 
 
 require_relative 'Game'
-let (:game) {Game.new("")}
 
-describe Game do 
 
-  it "asks player 1 to enter a secret word" do 
-    expect 
-  end
+describe Game do
+let (:game) {Game.new("sesame")} 
 
-  it "stores the secret word provided on initialization" do
+
+  it "displays the word length as a series of dashes" do 
+    expect(game.show_word).to eq ("______")
   end 
 
-  it "converts to the secret word to an array" do 
-  end 
-
-  it "displays the word as a series of dashes" do 
-  end 
-
-  it "equates number of guesses to secret word length" do
-  end 
-
-  it "matches user-inputted letter to array" do
-  end 
 
   context "if inputted letter has a match in the array" do 
     
     it "displays the letter in the array" do 
+      expect(game.check_letter("a")).to eq("---a--")
     end
-
 
   end 
 
