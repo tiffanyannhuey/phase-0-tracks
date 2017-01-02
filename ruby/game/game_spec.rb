@@ -11,7 +11,8 @@
   #The player will enter in a letter. repeated guesses don't count #against the user
     #If the letter matches a letter in the secret word, than the #letter will be revealed in the secret word
       #repeated guesses do not count against the user
-    #if the letter doesn't match, then the computer will say 'wrong! #guess again'
+    #Tf the letter doesn't match, then the computer will say 'there is no (letter) in this word'. 
+      # The computer will show how many tries are left 
     #The computer will continue to show the current word status to #player 2
 #If player 2 guesses the entire word correctly, then the game is over #and it will print out a congratulatory message
   #Otherwise, if the game ends and the secret word is not guessed, #player 2 will receive a taunting message 
@@ -22,19 +23,30 @@ require_relative 'Game'
 describe Game do
 let (:game) {Game.new("hello")} 
 
+  it "shows max guesses by the length of the word " do 
+    expect(game.max_number_guesses).to eq (5)
+  end 
 
   it "displays the word length as a series of dashes" do 
     expect(game.show_word(@secret_word, @guessed_letters)).to eq ("_ _ _ _ _ ")
   end 
 
-
-  context "if inputted letter has a match in the array" do 
-    
+  context "when inputted letter is in the secret word" do 
     it "displays the letter in the array" do 
-      expect(game.check_letter("a")).to eq("---a--")
+      expect(game.check_letter("h")).to eq("h_ _ _ _ ")
     end
-
   end 
+  context "when inputted letter is not in the secret word" do
+    it "will not display the letter in the array" do 
+      expect(game.check_letter("a")).to eq ("_ _ _ _ _ ")
+    end 
+  end 
+#  context "when inputted letter was already used" do 
+#    it "will not count against the user" do 
+#    expect(game.check_letter("h")).not_to change {@number_of_guesses}.from(0).to(1)
+#    end
+#  end
+
 
 
 
