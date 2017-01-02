@@ -58,17 +58,18 @@ end
 
 
 #user interface
-puts "Welcome to the Word Guess game!"
-puts "Player 1, enter in a secret word"
-word = gets.chomp 
-word_game = Game.new(word)
 
-puts  "#{word_game.show_word(@secret_word, @guessed_letters)}"
-
-until word_game.game_over == true 
-  puts "Guess the word by typing in a letter."
-  
-  user2_letter = gets.chomp
-  
-  word_game.check_letter(user2_letter)
-end 
+#puts "Welcome to the Word Guess game!"
+#puts "Player 1, enter in a secret word"
+#word = gets.chomp 
+#word_game = Game.new(word)
+#
+#puts  "#{word_game.show_word(@secret_word, @guessed_letters)}"
+#
+#until word_game.game_over == true 
+#  puts "Guess the word by typing in a letter."
+#  
+#  user2_letter = gets.chomp
+#  
+#  word_game.check_letter(user2_letter)
+#end 
