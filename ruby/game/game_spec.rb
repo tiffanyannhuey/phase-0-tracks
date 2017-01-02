@@ -20,11 +20,11 @@ require_relative 'Game'
 
 
 describe Game do
-let (:game) {Game.new("sesame")} 
+let (:game) {Game.new("hello")} 
 
 
   it "displays the word length as a series of dashes" do 
-    expect(game.show_word).to eq ("______")
+    expect(game.show_word(@secret_word, @guessed_letters)).to eq ("_ _ _ _ _ ")
   end 
 
 
