@@ -3,50 +3,11 @@
 # steps: 
   # Separate each item at the " ", start an array
   # set default quantity
-  # Array of items and their corresponding default quanities go into a hash
+  # Array of items and their corresponding default quantities go into a hash
   # print the list to the console [can you use one of your other methods here?]
 
 # output: [what data type goes here, array or hash?] Hash = {items, quantities}
 
-
-# DRIVER CODE for create list method
-
-
-#create_list("carrots apples cereal pizza")
-
-# Method to add an item to a list
-# input: item name; quantity
-
-
-# Ask user, "Here is the list, #{list}, Do you want to the list."
-# steps: user input = gets.chomp
-# Insert user input into hash. Ask for quantity (integer), insert quantity in as value (quantity).
-# Loop. Repeat until user types 'done'
-# output: Hash of updated list {items, quantities}
-
-# Method to remove an item from the list
-# input: Hash
-
-# steps: Ask user "Do you want to take anything out of the list?"
-# user input = gets.chomp
-# IF user_input == any item in the KEY of the hash, remove that item (.delete?)
-# Loop. Repeat until user types 'done'
-# output: Hash - deleted item
-
-# Method to update the quantity of an item
-# input: Hash
-# steps: Ask user "Do you want to update the quantities of any of the items?"
-# user input should be the key (item) = gets.chomp
-# Display key and value (item and quantity). Ask user to assign new quantity (integer), new quantity replaces old quantity
-# Loop. Repeat until user types 'done'
-# output: Hash with quantity(or quantities) updated
-
-# Method to print a list and make it look pretty
-# input: Hash
-# steps: Puts statement "You need #{quantity} of #{item}."
-# output: Each item and quantity in hash printed as a puts statement until there are no more items.
-
-items_to_list = "carrots apples cereal pizza"
 
 def create_list(items_to_list)
   grocery_list = {}
@@ -55,27 +16,58 @@ def create_list(items_to_list)
   grocery_list
 end
 
-grocery_list = create_list(items_to_list)
+# DRIVER CODE for create list method
+  #items_to_list = "carrots apples cereal pizza"
+  #create_list("carrots apples cereal pizza")
+
+# Method to add an item to a list
+# input: grocery list; item name; quantity
+# steps: 
+  #Insert user input into hash. Ask for quantity (integer), insert quantity in as value (quantity).
+# output: Hash of updated list {items, quantities}
 
 def add_item_to_list(grocery_list, new_item, quantity)
  grocery_list.store(new_item, quantity)
  grocery_list
 end
 
-#add_item_to_list(grocery_list, "candy", 2)
+# DRIVER CODE for add to list method
+  #add_item_to_list(grocery_list, "candy", 2)
+
+# Method to remove an item from the list
+# input: grocery list, item name
+# steps: 
+  #delete where item name (key) matches element in grocery list.
+# output: Hash - deleted item
 
 def remove_item(grocery_list, item)
   grocery_list.delete(item)
   grocery_list
 end
-#remove_item(grocery_list, "carrots")
+
+# DRIVER CODE for remove from list method
+  #remove_item(grocery_list, "carrots")
+
+# Method to update the quantity of an item
+# input: grocery list; item name; quantity
+# steps: 
+  #use item name to access key in the grocery list
+  # quantity entered will be new quantity of item
+# output: Hash with quantity updated next to item name
 
 def update_quantity(grocery_list, item, quantity)
   grocery_list[item] = quantity
   grocery_list
 end
 
-#update_quantity(grocery_list, "cereal", 45) 
+# DRIVER CODE for update quantity method
+  #update_quantity(grocery_list, "cereal", 45) 
+
+# Method to print a list and make it look pretty
+# input: grocery list
+# steps: 
+  # FOR EACH item, write a statement that puts the item name, qty
+# output: Each item and quantity in hash printed as a new line until there are no more items.
 
 def print_list(grocery_list)
   grocery_list.each do |item, quantity|
@@ -83,13 +75,14 @@ def print_list(grocery_list)
   end
 end
 
-#p print_list(grocery_list)
+# DRIVER CODE for print list method
+  #p print_list(grocery_list)
 
 
 
-# Driver Code
+# Test Solution
 items_to_list = "carrots apples cereal pizza"
-grocery_list(items_to_list)
+grocery_list = create_list(items_to_list)
 print_list(grocery_list)
 add_item_to_list(grocery_list, "lemonade", 2)
 print_list(grocery_list)
