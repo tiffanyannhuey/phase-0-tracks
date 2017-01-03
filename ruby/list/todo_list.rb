@@ -14,14 +14,11 @@ class TodoList
  end 
 
  def delete_item(unwanted_item)
-  remove_item = @list.index(unwanted_item)
-  @list.delete_at(remove_item)
-  @list 
+  @list.delete(unwanted_item) 
  end 
 
  def get_item(i)
-  wanted_item = @list.at(i)
-  p wanted_item 
+  @list.at(i)
  end 
 
 end 
