@@ -1,12 +1,13 @@
 
+// Reverse the Word 
 // Take a string as a parameter
 function reverse(string) {
 
-// create an empty string to add new letters to
+// Create an empty string to add new letters to
 var reversedString = '';
 
 // For each letter in the string, print each letter starting with 
-//the last letter to the first, reversing the string
+// the last letter to the first, reversing the string
 // Loop through the length of the string until the index reaches 0
 
 for(var i = string.length - 1; i >= 0; i --) {
@@ -18,6 +19,15 @@ return reversedString;
 }
 
 //Driver code to test the function
-var result = reverse("Hello");
 
+console.log("Give me a word to reverse");
+var userWord = prompt("Enter a word.");
+// assign the result of the function to a new variable
+var result = reverse(userWord);
+// Print out the variable
 console.log("The new word is " + result);
+
+
+
+
+
