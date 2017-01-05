@@ -13,9 +13,11 @@ for(var i = string.length - 1; i >= 0; i --) {
   reversedString += string[i];
 }
 // Print the reversed string
-console.log(reversedString);
+return reversedString;
 
 }
 
 //Driver code to test the function
-(reverse("Hello"));
+var result = reverse("Hello");
+
+console.log("The new word is " + result);
