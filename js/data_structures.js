@@ -31,3 +31,9 @@ console.log(car1);
 car1.revEngine();
 console.log(car1.color);
 console.log(car1.year);
+
+var car2 = new Car('blue', 2006, false)
+console.log(car2);
+
+var car3 = new Car('green', 2010, true)
+console.log(car3);
