@@ -7,7 +7,7 @@
 # require_relative starts looking for the accompanying data in a specific file or file path 
 # require would start looking at a pre-defined directory or you can also set a directory for it to start searching at 
 #
- require_relative '../state_data'
+ require_relative 'state_data'
  
  class VirusPredictor
  
@@ -18,16 +18,17 @@
    end
  
  # This method will return the outputs of the predicted deaths method and the speed of spread method
+ # We don't need to add variables as parameters when calling below methods because it's already accessible in the class
    def virus_effects
-     predicted_deaths(@population_density, @population, @state)
-     speed_of_spread(@population_density, @state)
+     predicted_deaths
+     speed_of_spread
    end
  
    private
  
  # It will look for certain conditions based on the population density
  # It will calculate a prediction of death total based on the input values 
-   def predicted_deaths(population_density, population, state)
+   def predicted_deaths
      # predicted deaths is solely based on population density
      if @population_density >= 200
        number_of_deaths = (@population * 0.4).floor
@@ -46,7 +47,7 @@
    end
  
  # This method will calculate how fast (in months) the population density will be affected 
-   def speed_of_spread(population_density, state) #in months
+   def speed_of_spread #in months
      # We are still perfecting our formula here. The speed is also affected
      # by additional factors we haven't added into this functionality.
      speed = 0.0
