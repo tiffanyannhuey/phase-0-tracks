@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with the guide ].
+# We spent [3] hours on this challenge.
 
 # EXPLANATION OF require_relative
 # require_relative starts looking for the accompanying data in a specific file or file path 
@@ -100,3 +100,14 @@ end
 
 #=======================================================================
 # Reflection Section
+
+#1. The first hash uses a string as a key with a hash rocket pointing to the values (another hash). 
+# The second type of hash uses a symbol with a colon indication the value, which is an integer
+
+#2. require_relative starts looking for the accompanying data in a specific file or file path 
+# require would start looking at a pre-defined directory or you can also set a directory for it t
+
+#.3 You can iterate through a hash with .each, .map, .each_key, .each_value
+#.4 You don't have to pass instance variables in a method because the instance variables are accessible anywhere in the class
+#.5 The concept that was solidified the most was Constant scope and accessing nested hashes through iteration
+
