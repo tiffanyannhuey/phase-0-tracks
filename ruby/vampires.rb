@@ -7,6 +7,7 @@ number_of_employees = gets.chomp
 survey_entries = number_of_employees.to_i 
 #countdown to last survey
 until survey_entries == 0
+puts "Starting survey"
   survey_entries = survey_entries - 1
 
  
@@ -111,30 +112,29 @@ until survey_entries == 0
     if allergies == "done"
       puts "Thank you"
       completed_list = true
-      #match conditions
-        case 
-        #if age right and willing to eat garlic bread or have insurance
-        when age && (likes_garlic_bread || has_insurance)
-          print "Probably not a vampire."
-        #if age wrong and hates garlic bread OR waives insurance
-        when !age && (!likes_garlic_bread || !has_insurance) 
-          print "Probably a vampire."
-        #when age wrong and hates garlic bread and waives insurance
-        when !age && !(likes_garlic_bread && has_insurance)
-          print "Almost certainly a vampire."
-        #even if everything right and name is Drake Cula
-        when name == "Drake Cula" 
-          print "Definitely a vampire"
-        #even if everything right and name is Tu Fang
-        when name == "Tu Fang"
-          print "Definitely a vampire" 
-        else
-          print "Results inconclusive."
-    end
-
     elsif allergies == "sunshine"
       puts "Probably a vampire"
       completed_list = true
+    elsif 
+      #match conditions
+      #even if everything right and name is Drake Cula or Tu Fang they're a vampire
+        if name == "Drake Cula" || name == "Tu Fang" 
+        puts "Definitely a vampire"
+        #if age right and willing to eat garlic bread or have insurance
+        elsif 
+            age && (likes_garlic_bread || has_insurance)
+          puts "Probably not a vampire."
+        #if age wrong and hates garlic bread OR waives insurance
+        elsif !age && (!likes_garlic_bread || !has_insurance) 
+          puts "Probably a vampire."
+        #when age wrong and hates garlic bread and waives insurance
+        elsif 
+            !age && !(likes_garlic_bread && has_insurance)
+          puts "Almost certainly a vampire."
+        else
+          puts "Results inconclusive."
+        end
+    
     else 
       puts "What's another one?"
     end
