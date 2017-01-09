@@ -44,12 +44,17 @@ function objectMatcher (object1, object2) {
 
 
 function randomWords(count) {
-var word_array = []
+var word_array = [];
+var random_word = "";
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var word_count = 0;
-while ( word_count <= count - 1) {
-  console.log("word count is equal to" + word_count)
-  word_count += 1
+while ( word_count < count) {
+  var random_word = alphabet.charAt((Math.floor(Math.random() * 10) + 1) * alphabet.length); 
+// I researched a method to generate a random number between 1-10, and another for the random word
+  word_array += random_word;
+  word_count += 1;
 }
+return random_word
 }
 
 
