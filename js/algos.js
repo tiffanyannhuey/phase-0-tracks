@@ -34,6 +34,23 @@ function objectMatcher (object1, object2) {
   
 }
 
+// This function takes an integer for length, and builds and returns an array of strings of a given length
+// There will need to be an empty array container for the strings to go into
+  // Each string will be compiled of a series of letters
+  // For each string, it should be a random length and a max of 10 letters
+// Push each string back into the array
+// Return the array of letters
+// The array should then be entered into the longest word function 
+
+
+function randomWords(count) {
+var word_array = []
+var word_count = 0;
+while ( word_count <= count - 1) {
+  console.log("word count is equal to" + word_count)
+  word_count += 1
+}
+}
 
 
 
@@ -56,6 +73,8 @@ console.log(objectMatcher(steven,tamir));
 console.log(objectMatcher(steven, tiffany));
 console.log(objectMatcher(steven,thing));
 
+// Add driver code to test out random word count
+console.log(randomWords(3))
 
 
 
