@@ -50,7 +50,8 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var word_count = 0;
 while ( word_count < count) {
    random_word =  "cats"; // = alphabet.charAt(Math.floor((Math.random() * 10) + 1) * alphabet.length); 
-// I researched a method to generate a random number between 1-10, and another for the random word
+// I researched a method to generate a random number between 1-10, and then to create a random word with that number- it's not working 
+// I tested this function with a set word "cats" and it seems to return the array
   word_array.push(random_word); 
   word_count += 1;
 }
@@ -59,14 +60,13 @@ return word_array
 
 
 
-
 // Add driver code that tests out the sort words array
 
-var colorArray = ["Green", "Blue", "Yellow", "Pink"];
-console.log(sortWords(colorArray));
-
-var petsArray = ["dog", "cat", "bird", "snake"]
-console.log(sortWords(petsArray));
+ var colorArray = ["Green", "Blue", "Yellow", "Pink"];
+ console.log(sortWords(colorArray));
+ 
+ var petsArray = ["dog", "cat", "bird", "snake"]
+ console.log(sortWords(petsArray));
 
 // Add driver code to test out object match function
 
@@ -79,8 +79,8 @@ console.log(objectMatcher(steven, tiffany));
 console.log(objectMatcher(steven,thing));
 
 // Add driver code to test out random word count
-console.log(randomWords(3))
-
+console.log(randomWords(3));
+console.log(randomWords(5));
 
 
 
