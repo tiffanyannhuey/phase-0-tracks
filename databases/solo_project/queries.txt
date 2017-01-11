@@ -1,0 +1,74 @@
+
+1. Display the information in one table (either table is fine).
+solo_project :> sqlite3 school_attendance.db 
+SQLite version 3.8.10.2 2015-05-20 18:17:19
+Enter ".help" for usage hints.
+sqlite> SELECT * from student;
+1|Harry|4|true|1
+2|Ron|5|true|2
+3|Hermione|8|false|2
+4|Neville|2|false|1
+sqlite> 
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+sqlite> UPDATE student SET rides_bus="true" WHERE student_name="Hermione";
+sqlite> select * from student;
+1|Harry|4|true|1
+2|Ron|5|true|2
+3|Hermione|8|true|2
+4|Neville|2|false|1
+sqlite> 
+
+3. Display the information in both tables using one query.
+sqlite> SELECT * FROM student, teacher WHERE student.teacher_id = teacher.id;
+1|Harry|4|true|1|1|Severus Snape
+2|Ron|5|true|2|2|Minerva McGonagall
+3|Hermione|8|true|2|2|Minerva McGonagall
+4|Neville|2|false|1|1|Severus Snape
+sqlite> 
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+sqlite> SELECT student.student_name, teacher.name FROM student JOIN teacher ON student.teacher_id = teacher.id;
+Harry|Severus Snape
+Ron|Minerva McGonagall
+Hermione|Minerva McGonagall
+Neville|Severus Snape
+sqlite> 
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+sqlite> DELETE FROM student WHERE rides_bus="false";
+sqlite> SELECT * FROM student, teacher WHERE student.teacher_id = teacher.id;
+1|Harry|4|true|1|1|Severus Snape
+2|Ron|5|true|2|2|Minerva McGonagall
+3|Hermione|8|true|2|2|Minerva McGonagall
+sqlite> 
+
+Example of CROSS JOIN - matches every row of the first table with every row of the second table. 
+sqlite> SELECT * FROM teacher CROSS JOIN student;
+1|Severus Snape|1|Harry|4|true|1
+1|Severus Snape|2|Ron|5|true|2
+1|Severus Snape|3|Hermione|8|true|2
+2|Minerva McGonagall|1|Harry|4|true|1
+2|Minerva McGonagall|2|Ron|5|true|2
+2|Minerva McGonagall|3|Hermione|8|true|2
+sqlite> 
+
+Example of INNER JOIN - creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate.
+sqlite> SELECT student_name, grade FROM student INNER JOIN teacher on student.teacher_id = teacher.id;
+Harry|4
+Ron|5
+Hermione|8
+sqlite> 
+
+Examples of LEFT OUTER JOIN (only one supported by SQLite) - 
+sqlite> SELECT student_name, grade FROM student LEFT OUTER JOIN teacher on student.teacher_id = teacher.id;
+Harry|4
+Ron|5
+Hermione|8
+sqlite> 
+
+sqlite> SELECT student_name, rides_bus FROM student LEFT OUTER JOIN teacher on student.teacher_id = teacher.id;
+Harry|true
+Ron|true
+Hermione|true
+sqlite> 
