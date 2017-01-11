@@ -1,0 +1,20 @@
+
+1. Display the information in one table (either table is fine).
+solo_project :> sqlite3 school_attendance.db 
+SQLite version 3.8.10.2 2015-05-20 18:17:19
+Enter ".help" for usage hints.
+sqlite> SELECT * from student;
+1|Harry|4|true|1
+2|Ron|5|true|2
+3|Hermione|8|false|2
+4|Neville|2|false|1
+sqlite> 
+
+2. 
+sqlite> UPDATE student SET rides_bus="true" WHERE student_name="Hermione";
+sqlite> select * from student;
+1|Harry|4|true|1
+2|Ron|5|true|2
+3|Hermione|8|true|2
+4|Neville|2|false|1
+sqlite> 
