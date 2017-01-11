@@ -10,11 +10,35 @@ sqlite> SELECT * from student;
 4|Neville|2|false|1
 sqlite> 
 
-2. 
+2. Update an item that meets some condition (you can choose a condition that makes sense).
 sqlite> UPDATE student SET rides_bus="true" WHERE student_name="Hermione";
 sqlite> select * from student;
 1|Harry|4|true|1
 2|Ron|5|true|2
 3|Hermione|8|true|2
 4|Neville|2|false|1
+sqlite> 
+
+3. Display the information in both tables using one query.
+sqlite> SELECT * FROM student, teacher WHERE student.teacher_id = teacher.id;
+1|Harry|4|true|1|1|Severus Snape
+2|Ron|5|true|2|2|Minerva McGonagall
+3|Hermione|8|true|2|2|Minerva McGonagall
+4|Neville|2|false|1|1|Severus Snape
+sqlite> 
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+sqlite> SELECT student.student_name, teacher.name FROM student JOIN teacher ON student.teacher_id = teacher.id;
+Harry|Severus Snape
+Ron|Minerva McGonagall
+Hermione|Minerva McGonagall
+Neville|Severus Snape
+sqlite> 
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+sqlite> DELETE FROM student WHERE rides_bus="false";
+sqlite> SELECT * FROM student, teacher WHERE student.teacher_id = teacher.id;
+1|Harry|4|true|1|1|Severus Snape
+2|Ron|5|true|2|2|Minerva McGonagall
+3|Hermione|8|true|2|2|Minerva McGonagall
 sqlite> 
