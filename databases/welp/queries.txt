@@ -1,0 +1,44 @@
+#  Release 2
+
+#  Joining 3 tables
+
+sqlite> SELECT * FROM reviews
+   ...> JOIN users ON reviews.user_id = users.id
+   ...> JOIN businesses ON reviews.business_id = businesses.id;
+1|5|great food!!|1|1|1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel
+2|4|will try again|2|2|2|Mandy|Kaling|2|Amir's Towing
+3|3|meh|6|3|3|Angela|Jolie|6|Sushi World
+4|1|yuck|6|7|7|Denzel|George|6|Sushi World
+
+# Viewing specific fields on a join: Users name, business name, star rating, and comment.
+
+sqlite> SELECT
+   ...> users.first_name,
+   ...> users.last_name,
+   ...> businesses.name,
+   ...> reviews.stars,
+   ...> reviews.comments
+   ...> FROM
+   ...> reviews
+   ...> JOIN users ON reviews.user_id = users.id
+   ...> JOIN businesses ON reviews.business_id = businesses.id;
+Bradford|Pitt|Grundy Hollow Wedding Chapel|5|great food!!
+Mandy|Kaling|Amir's Towing|4|will try again
+Angela|Jolie|Sushi World|3|meh
+Denzel|George|Sushi World|1|yuck
+
+# Reviewing all the data of all three tables, and extract data for one particular business 
+
+sqlite> SELECT
+   ...> users.first_name,
+   ...> users.last_name,
+   ...> businesses.name,
+   ...> reviews.stars,
+   ...> reviews.comment
+   ...> FROM
+   ...> reviews
+   ...> JOIN users ON reviews.user_id = users.id
+   ...> JOIN businesses ON reviews.business_id = businesses.id
+   ...> WHERE businesses.id=6;
+Angela|Jolie|Sushi World|3|meh
+Denzel|George|Sushi World|1|yuck
