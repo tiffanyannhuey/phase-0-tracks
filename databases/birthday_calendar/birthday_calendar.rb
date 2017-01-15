@@ -9,6 +9,7 @@ require 'faker'
 
 
 # create SQLite3 database
+db = SQLite3::Database.new ("birthdays.db")
 
 # create a birthday table (if not there already)
 
