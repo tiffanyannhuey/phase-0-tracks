@@ -39,9 +39,21 @@ end
 
 # create a sort method that will retrieve by month
 
+def sort_by_month(db, birthday_month)
+  birthday_month = db.execute("SELECT * FROM birthdays WHERE month=? ORDER BY day ASC", [birthday_month]) 
+  birthday_month.each do |friend|
+    puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
+  end
+end
+
+#DRIVER CODE to test month sort
+# add_birthday(db, 'Samantha', 'November', 20)
+sort_by_month(db, 'November')
+
+
 # explore ORM by retrieving data
-birthdays = db.execute("SELECT * FROM birthdays")
-puts birthdays
+# birthdays = db.execute("SELECT * FROM birthdays")
+# puts birthdays
 # birthdays.each do |friend|
 #   puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
 # end
