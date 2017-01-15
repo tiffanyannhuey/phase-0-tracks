@@ -28,13 +28,53 @@ db.execute(create_table_cmd)
 # add a test birthday
 # db.execute("INSERT INTO birthdays (name, month, day) VALUES ('Tiffany', 'November', 10)")
 
-# explore ORM by retrieving data
-birthdays = db.execute("SELECT * FROM birthdays")
-puts birthdays
-birthdays.each do |friend|
-  puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
+
+# add a friend's birthday
+def add_birthday(db, name, month, day)
+  db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", [name, month, day])
 end
+
+# DRIVER CODE to test add birthday method
+#p add_birthday(db, 'Josh', 'April', 8)
 
 # create a sort method that will retrieve by month
 
+# explore ORM by retrieving data
+birthdays = db.execute("SELECT * FROM birthdays")
+puts birthdays
+# birthdays.each do |friend|
+#   puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
+# end
+
+
+
 # USER INTERFACE
+# puts "What would you like to do?"
+# puts "To add a friend's birthday, type 1. To find a birthday, type 2."
+# 
+# valid_input = false
+# 
+# 
+#   choice = gets.chomp
+#   if choice == 1
+#     puts "You've picked choice 1"
+#      finished = false
+#      until finished == true
+#        puts "Enter your friend's name. Type q to exit. "
+#        name = gets.chomp
+#        puts "What month is your friend's birthday?"
+#        month = gets.chomp
+#        puts "On which day is your friend's birthday"
+#        day = gets.chomp.to_i
+#        add_birthday(db, name, month, day)
+#      break if name == "q"
+#        finished = true 
+#      end 
+
+# puts birthdays
+
+#   else choice == 2
+#     puts "ok"
+#   end
+
+
