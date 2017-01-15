@@ -23,7 +23,14 @@ SQL
 
 # create a birthday table (if not there already)
 db.execute(create_table_cmd)
+
 # add a test birthday
+# db.execute("INSERT INTO birthdays (name, month, day) VALUES ('Tiffany', 11, 10)")
+
+# explore ORM by retrieving data
+birthdays = db.execute("SELECT * FROM birthdays")
+puts birthdays.class
+p birthdays
 
 # create a sort method that will retrieve by month
 
