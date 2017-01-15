@@ -11,8 +11,18 @@ require 'faker'
 # create SQLite3 database
 db = SQLite3::Database.new ("birthdays.db")
 
-# create a birthday table (if not there already)
+# create fancy string
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS birthdays(
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  month INT, 
+  day INT
+  )
+SQL
 
+# create a birthday table (if not there already)
+db.execute(create_table_cmd)
 # add a test birthday
 
 # create a sort method that will retrieve by month
