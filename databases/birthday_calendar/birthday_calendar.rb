@@ -52,11 +52,11 @@ sort_by_month(db, 'November')
 
 
 # explore ORM by retrieving data
-# birthdays = db.execute("SELECT * FROM birthdays")
-# puts birthdays
-# birthdays.each do |friend|
-#   puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
-# end
+ birthdays = db.execute("SELECT * FROM birthdays")
+ puts birthdays
+ birthdays.each do |friend|
+   puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
+ end
 
 
 
@@ -70,20 +70,24 @@ sort_by_month(db, 'November')
 #   choice = gets.chomp
 #   if choice == 1
 #     puts "You've picked choice 1"
-#      finished = false
-#      until finished == true
-#        puts "Enter your friend's name. Type q to exit. "
-#        name = gets.chomp
-#        puts "What month is your friend's birthday?"
-#        month = gets.chomp
-#        puts "On which day is your friend's birthday"
-#        day = gets.chomp.to_i
-#        add_birthday(db, name, month, day)
-#      break if name == "q"
-#        finished = true 
-#      end 
+      finished = false
+      until finished == true
+        puts "Enter your friend's name. Type q to exit. "
+        name = gets.chomp
+        if name == "q"
+          puts "Goodbye"
+          finished = true
+        else
+          puts "What month is your friend's birthday?"
+          month = gets.chomp
+          puts "On which day is your friend's birthday"
+          day = gets.chomp.to_i
+          add_birthday(db, name, month, day)
+        end 
+        p birthdays
+      end 
 
-# puts birthdays
+ 
 
 #   else choice == 2
 #     puts "ok"
