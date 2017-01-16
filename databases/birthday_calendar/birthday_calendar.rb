@@ -58,7 +58,8 @@ def sort_by_name(db, name)
   end
 end 
 
-sort_by_name(db,"Josh")
+# DRIVER CODE to test name sort
+# sort_by_name(db,"Josh")
 
 
 # explore ORM by retrieving data
@@ -102,6 +103,10 @@ sort_by_name(db,"Josh")
 #        end 
 #      end 
 #  elsif choice == 2
+     puts "Which friend are you searching for?"
+     friends_name = gets.chomp
+     sort_by_name(db, friends_name) 
+
 #    puts "What month are you looking for?"
 #    chosen_month = gets.chomp
 #    sort_by_month(db, chosen_month)
