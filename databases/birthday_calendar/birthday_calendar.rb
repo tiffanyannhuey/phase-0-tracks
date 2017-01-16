@@ -48,7 +48,7 @@ end
 
 #DRIVER CODE to test month sort
 # add_birthday(db, 'Samantha', 'November', 20)
-sort_by_month(db, 'November')
+# sort_by_month(db, 'November')
 
 
 # explore ORM by retrieving data
@@ -61,15 +61,15 @@ sort_by_month(db, 'November')
 
 
 # USER INTERFACE
-# puts "What would you like to do?"
-# puts "To add a friend's birthday, type 1. To find a birthday, type 2."
-# 
-# valid_input = false
-# 
-# 
-#   choice = gets.chomp
-#   if choice == 1
-#     puts "You've picked choice 1"
+ puts "Welcome to the birthday calendar!"
+ puts "To add a friend's birthday, type 1. To find a birthday, type 2."
+ 
+ valid_input = false
+ 
+
+  choice = gets.chomp.to_i
+  if choice == 1
+     puts "You've picked choice 1"
       finished = false
       until finished == true
         puts "Enter your friend's name. Type q to exit. "
@@ -86,11 +86,12 @@ sort_by_month(db, 'November')
         end 
         p birthdays
       end 
-
- 
-
-#   else choice == 2
-#     puts "ok"
-#   end
+   elsif choice == 2
+     puts "What month are you looking for?"
+     chosen_month = gets.chomp
+     sort_by_month(db, chosen_month)
+   else 
+     puts "I didn't understand you"
+   end
 
 
