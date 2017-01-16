@@ -54,6 +54,7 @@ end
 # explore ORM by retrieving data
  birthdays = db.execute("SELECT * FROM birthdays")
  puts birthdays
+ 
  birthdays.each do |friend|
    puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
  end
@@ -62,15 +63,18 @@ end
 
 # USER INTERFACE
  puts "Welcome to the birthday calendar!"
- puts "To add a friend's birthday, type 1. To find a birthday, type 2."
  
  valid_input = false
  
+until valid_input == true
+
+ puts "To add a friend's birthday, type 1. To find a birthday, type 2."
 
   choice = gets.chomp.to_i
   if choice == 1
      puts "You've picked choice 1"
       finished = false
+      valid_input = true 
       until finished == true
         puts "Enter your friend's name. Type q to exit. "
         name = gets.chomp
@@ -84,14 +88,15 @@ end
           day = gets.chomp.to_i
           add_birthday(db, name, month, day)
         end 
-        p birthdays
+         birthdays
       end 
-   elsif choice == 2
-     puts "What month are you looking for?"
-     chosen_month = gets.chomp
-     sort_by_month(db, chosen_month)
-   else 
-     puts "I didn't understand you"
-   end
-
+  elsif choice == 2
+    puts "What month are you looking for?"
+    chosen_month = gets.chomp
+    sort_by_month(db, chosen_month)
+    valid_input = true
+  else 
+    puts "I didn't understand you"
+  end
+end
 
