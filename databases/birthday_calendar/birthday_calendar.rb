@@ -1,4 +1,4 @@
-# BIRTHDAY CALENDAR
+# BIRTHDAY CALENDAR PROGRAM
 
 # You can use this program to store the birthdays of your friends
 # You can see which friends are celebrating their birthday by typing in the month 
