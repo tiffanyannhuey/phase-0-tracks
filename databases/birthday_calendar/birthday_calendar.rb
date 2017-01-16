@@ -73,7 +73,7 @@ end
 #
 #
 #
-## USER INTERFACE
+# USER INTERFACE
 # puts "Welcome to the birthday calendar!"
 # 
 # valid_input = false
@@ -103,14 +103,25 @@ end
 #        end 
 #      end 
 #  elsif choice == 2
-     puts "Which friend are you searching for?"
-     friends_name = gets.chomp
-     sort_by_name(db, friends_name) 
-
-#    puts "What month are you looking for?"
-#    chosen_month = gets.chomp
-#    sort_by_month(db, chosen_month)
-#    valid_input = true
+    sort_answer = false
+    until sort_answer == true
+     puts "Type 1 to search by name, 2 by month"
+     sort_choice = gets.chomp.to_i
+      if sort_choice == 1
+          puts "Which friend are you searching for?"
+          friends_name = gets.chomp
+          sort_by_name(db, friends_name) 
+          sort_answer = true
+      elsif sort_choice ==2
+          puts "What month are you looking for?"
+          chosen_month = gets.chomp
+          sort_by_month(db, chosen_month)
+          sort_answer = true
+      else
+          puts "I didn't understand you"
+      end
+    end 
+#   valid_input = true
 #  else 
 #    puts "I didn't understand you"
 #  end
