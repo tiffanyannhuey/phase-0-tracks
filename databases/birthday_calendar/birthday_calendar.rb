@@ -33,10 +33,6 @@ SQL
 # create a birthday table (if not there already)
 db.execute(create_table_cmd)
 db.execute(create_month_table_cmd)
-
-# add months to months table
-# db.execute("INSERT INTO months (name) VALUES ('January'), ('February'), ('March'), ('April'), ('May'), ('June'), ('July'), ('August'), ('September'), ('October'), ('November'), ('December')")
-
 # add a test birthday
 # db.execute("INSERT INTO birthdays (name, month, day) VALUES ('Tiffany', 'November', 10)")
 
