@@ -41,10 +41,10 @@ db.execute(create_month_table_cmd)
 # db.execute("INSERT INTO birthdays (name, month, day) VALUES ('Tiffany', 'November', 10)")
 
 
-# Method to add a friends birthday
-def add_birthday(db, name, month, day)
-  db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", [name, month, day])
-end
+## Method to add a friends birthday
+#def add_birthday(db, name, month, day)
+#  db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", [name, month, day])
+#end
 #
 ## DRIVER CODE to test add birthday method
 ##p add_birthday(db, 'Josh', 'April', 8)
