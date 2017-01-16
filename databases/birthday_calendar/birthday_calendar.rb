@@ -63,67 +63,65 @@ end
 
 
 # explore ORM by retrieving data
+def birthday_list(db)
+  birthdays = db.execute("SELECT * FROM birthdays")
+  birthdays.each do |friend|
+    puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
+  end
+end
 
-#def birthday_list(db)
-#  birthdays = db.execute("SELECT * FROM birthdays")
-#  birthdays.each do |friend|
-#    puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
-#  end
-#end
-#
-#
-#
+
+
 # USER INTERFACE
-# puts "Welcome to the birthday calendar!"
-# 
-# valid_input = false
-# 
-#until valid_input == true
-#
-# puts "To add a friend's birthday, type 1. To find a birthday, type 2."
-#
-#  choice = gets.chomp.to_i
-#  if choice == 1
-#     puts "You've picked choice 1"
-#      finished = false
-#      valid_input = true 
-#      until finished == true
-#        puts "Enter your friend's name. Type q to exit. "
-#        name = gets.chomp
-#        if name == "q"
-#          puts "Here is your birthday calendar"
-#          birthday_list(db)
-#          finished = true
-#        else
-#          puts "What month is your friend's birthday?"
-#          month = gets.chomp
-#          puts "On which day is your friend's birthday"
-#          day = gets.chomp.to_i
-#          add_birthday(db, name, month, day)
-#        end 
-#      end 
-#  elsif choice == 2
-    sort_answer = false
-    until sort_answer == true
-     puts "Type 1 to search by name, 2 by month"
-     sort_choice = gets.chomp.to_i
-      if sort_choice == 1
-          puts "Which friend are you searching for?"
-          friends_name = gets.chomp
-          sort_by_name(db, friends_name) 
-          sort_answer = true
-      elsif sort_choice ==2
-          puts "What month are you looking for?"
-          chosen_month = gets.chomp
-          sort_by_month(db, chosen_month)
-          sort_answer = true
-      else
-          puts "I didn't understand you"
-      end
-    end 
-#   valid_input = true
-#  else 
-#    puts "I didn't understand you"
-#  end
-#end
+ puts "Welcome to the birthday calendar!"
+ 
+ valid_input = false
+ 
+until valid_input == true
 
+ puts "To add a friend's birthday, type 1. To find a birthday, type 2."
+
+  choice = gets.chomp.to_i
+  if choice == 1
+     puts "You've picked choice 1"
+      finished = false
+      valid_input = true 
+      until finished == true
+        puts "Enter your friend's name. Type q to exit. "
+        name = gets.chomp
+        if name == "q"
+          puts "Here is your birthday calendar"
+          birthday_list(db)
+          finished = true
+        else
+          puts "What month is your friend's birthday?"
+          month = gets.chomp
+          puts "On which day is your friend's birthday"
+          day = gets.chomp.to_i
+          add_birthday(db, name, month, day)
+        end 
+      end 
+  elsif choice == 2
+   sort_answer = false
+   until sort_answer == true
+    puts "Type 1 to search by name, 2 by month"
+    sort_choice = gets.chomp.to_i
+     if sort_choice == 1
+         puts "Which friend are you searching for?"
+         friends_name = gets.chomp
+         sort_by_name(db, friends_name) 
+         sort_answer = true
+     elsif sort_choice ==2
+         puts "What month are you looking for?"
+         chosen_month = gets.chomp
+         sort_by_month(db, chosen_month)
+         sort_answer = true
+     else
+         puts "I didn't understand you"
+     end
+   end 
+   valid_input = true
+  else 
+    puts "I didn't understand you"
+  end
+end
