@@ -29,7 +29,7 @@ db.execute(create_table_cmd)
 # db.execute("INSERT INTO birthdays (name, month, day) VALUES ('Tiffany', 'November', 10)")
 
 
-# add a friend's birthday
+# Method to add a friends birthday
 def add_birthday(db, name, month, day)
   db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", [name, month, day])
 end
@@ -37,7 +37,7 @@ end
 # DRIVER CODE to test add birthday method
 #p add_birthday(db, 'Josh', 'April', 8)
 
-# create a sort method that will retrieve by month
+# Create a Sort method that will sort birthday by month
 
 def sort_by_month(db, birthday_month)
   birthday_month = db.execute("SELECT * FROM birthdays WHERE month=? ORDER BY day ASC", [birthday_month]) 
@@ -50,56 +50,64 @@ end
 # add_birthday(db, 'Samantha', 'November', 20)
 # sort_by_month(db, 'November')
 
-
-# explore ORM by retrieving data
- 
-
-
-def birthday_list(db)
-  birthdays = db.execute("SELECT * FROM birthdays")
-  birthdays.each do |friend|
+# Create a Sort method that will sort by name
+def sort_by_name(db, name)
+  friend_birthday = db.execute("SELECT * FROM birthdays WHERE name=? COLLATE NOCASE  ", [name])
+  friend_birthday.each do |friend|
     puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
   end
-end
+end 
+
+sort_by_name(db,"Josh")
 
 
+# explore ORM by retrieving data
 
-# USER INTERFACE
- puts "Welcome to the birthday calendar!"
- 
- valid_input = false
- 
-until valid_input == true
-
- puts "To add a friend's birthday, type 1. To find a birthday, type 2."
-
-  choice = gets.chomp.to_i
-  if choice == 1
-     puts "You've picked choice 1"
-      finished = false
-      valid_input = true 
-      until finished == true
-        puts "Enter your friend's name. Type q to exit. "
-        name = gets.chomp
-        if name == "q"
-          puts "Here is your birthday calendar"
-          birthday_list(db)
-          finished = true
-        else
-          puts "What month is your friend's birthday?"
-          month = gets.chomp
-          puts "On which day is your friend's birthday"
-          day = gets.chomp.to_i
-          add_birthday(db, name, month, day)
-        end 
-      end 
-  elsif choice == 2
-    puts "What month are you looking for?"
-    chosen_month = gets.chomp
-    sort_by_month(db, chosen_month)
-    valid_input = true
-  else 
-    puts "I didn't understand you"
-  end
-end
+#def birthday_list(db)
+#  birthdays = db.execute("SELECT * FROM birthdays")
+#  birthdays.each do |friend|
+#    puts "#{friend['name']}'s birthday is on #{friend['month']} #{friend['day']}"
+#  end
+#end
+#
+#
+#
+## USER INTERFACE
+# puts "Welcome to the birthday calendar!"
+# 
+# valid_input = false
+# 
+#until valid_input == true
+#
+# puts "To add a friend's birthday, type 1. To find a birthday, type 2."
+#
+#  choice = gets.chomp.to_i
+#  if choice == 1
+#     puts "You've picked choice 1"
+#      finished = false
+#      valid_input = true 
+#      until finished == true
+#        puts "Enter your friend's name. Type q to exit. "
+#        name = gets.chomp
+#        if name == "q"
+#          puts "Here is your birthday calendar"
+#          birthday_list(db)
+#          finished = true
+#        else
+#          puts "What month is your friend's birthday?"
+#          month = gets.chomp
+#          puts "On which day is your friend's birthday"
+#          day = gets.chomp.to_i
+#          add_birthday(db, name, month, day)
+#        end 
+#      end 
+#  elsif choice == 2
+#    puts "What month are you looking for?"
+#    chosen_month = gets.chomp
+#    sort_by_month(db, chosen_month)
+#    valid_input = true
+#  else 
+#    puts "I didn't understand you"
+#  end
+#end
 
