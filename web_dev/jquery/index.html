@@ -5,8 +5,15 @@
   <script type="text/javascript" src="jquery-3.1.1.js" ></script>
   <script type="text/javascript">
     $(document).ready(function() {
+      $("p").css({"background-color":"pink", "border":"4px dotted"});
+      $("#mydiv").addClass("selected");
+      $("span").addClass("highlight");
     });   
   </script>
+  <style>
+    .selected { color:red; }
+    .highlight {background:yellow;}
+  </style>
 </head>
 <body>
 <h1>Playing Around with jQuery</h1>
@@ -18,5 +25,6 @@
     </ul>
 <h2>This is a different header</h2>
   <p>This is another paragraph</p>
+  <div id= "mydiv">This is a div with a <span>span</span></div>
 </body>
 </html>
