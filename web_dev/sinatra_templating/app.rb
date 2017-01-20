@@ -20,28 +20,29 @@ end
 # create new students via
 # a form
 post '/students' do
-  p params
   db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
   redirect '/'
 end
 
 # add static resources
 
-# add an ERB template for an about page
+# add an ERB template to show which students are going to CHI
 
-get '/about' do 
+get '/chicago' do 
   @campus = db.execute("SELECT * FROM students WHERE campus=('CHI')")
-  erb :about
+  erb :chicago
 end
 
 # use a form to search for a student
-get '/students/find' do
-  erb :find_student
+get '/update' do
+  erb :update
 end
 
-# retrieve students via a form
-get '/students/:name' do 
-  name = [params[:name]]
-  db.execute("SELECT * FROM students WHERE name=?" [name])
-end 
+# update students list via a form
+post '/newcampus' do
+  p params 
+  db.execute("UPDATE students SET campus =(?) WHERE name=(?)", [params['campus'], params['name']])
+  redirect '/'
+end
+
 
