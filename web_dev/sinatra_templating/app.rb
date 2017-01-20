@@ -25,3 +25,9 @@ post '/students' do
 end
 
 # add static resources
+
+# add an ERB template for an about page
+
+get '/about' do 
+  
+end
