@@ -52,7 +52,8 @@ get '/contact/:address' do
   "The address is #{address}."
 end
 
-# write a GET route that can take a person's name 
+# write a GET route that can take a person's name as a query parameter
+  # IF the query is not present, the route says "Good job!"
 
 get '/great_job' do
   name = params[:name]
@@ -63,4 +64,9 @@ get '/great_job' do
   end
 end
 
+# write a get route that uses route parameters to add 2 numbers
+# and respond with a result 
 
+get '/add/:number_1/:number_2' do
+  "The result is #{params[:number_1].to_i + params[:number_2].to_i}"
+end
