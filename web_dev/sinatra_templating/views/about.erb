@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Students In Chicago</title>
+</head>
+<body>
+<h1>Chicago Roster</h1>
+<p>This list shows all students that are attending school in Chicago</p>
+  <ul><% @campus.each do |student| %>
+    <li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
