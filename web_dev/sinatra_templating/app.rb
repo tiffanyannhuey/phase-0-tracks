@@ -25,3 +25,24 @@ post '/students' do
 end
 
 # add static resources
+
+# add an ERB template to show which students are going to CHI
+
+get '/chicago' do 
+  @campus = db.execute("SELECT * FROM students WHERE campus=('CHI')")
+  erb :chicago
+end
+
+# use a form to search for a student
+get '/update' do
+  erb :update
+end
+
+# update students list via a form
+post '/newcampus' do
+  p params 
+  db.execute("UPDATE students SET campus =(?) WHERE name=(?)", [params['campus'], params['name']])
+  redirect '/'
+end
+
+
